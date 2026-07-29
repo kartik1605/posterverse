@@ -14,9 +14,13 @@
    Full steps in README-SHOPIFY.md.
    ============================================ */
 
+/* The Storefront access token is a public, read-only credential — it ships to
+   the browser by design and is scoped to reading products and creating carts.
+   It is NOT an Admin API token (`shpat_…`), which must never appear here.
+   Rotate it in Shopify admin → Apps → your app → Storefront API if needed. */
 const SHOPIFY_CONFIG = {
-  domain: "",          // e.g. "posterverse.myshopify.com"
-  storefrontToken: ""  // Storefront API access token
+  domain: "diqvkg-vm.myshopify.com",
+  storefrontToken: "23a93f7c02846b888468b15a4784e82d"
 };
 
 const shopifyEnabled = () => SHOPIFY_CONFIG.domain && SHOPIFY_CONFIG.storefrontToken;
