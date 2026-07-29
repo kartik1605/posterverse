@@ -52,11 +52,22 @@ function imageUrlFor(product) {
   return IMAGE_BASE + rel;
 }
 
+// Surface/use-case tags. These carry far more search volume than theme
+// keywords ("laptop stickers india" vs "humor stickers"), and the category
+// leaders tag every product this way.
+const SURFACE_TAGS = {
+  stickers: ['Laptop Sticker', 'Notebook Sticker', 'Phone Sticker', 'Water Bottle Sticker', 'Vinyl Sticker'],
+  posters: ['Wall Poster', 'Room Decor', 'Wall Art'],
+  cards: ['Greeting Card', 'Gift Card', 'Stationery'],
+  labels: ['Product Label', 'Packaging Label', 'Small Business'],
+};
+
 function tagsFor(product, vibes) {
   const tags = [];
   if (product.vibe) tags.push(product.vibe); // filter chips match on this
   tags.push(product.category);
   if (product.vibe && vibes[product.vibe]) tags.push(vibes[product.vibe].label);
+  tags.push(...(SURFACE_TAGS[product.category] || []));
   if (product.badge === 'hot') tags.push('Bestseller');
   if (product.badge === 'new') tags.push('New Launch');
   tags.push('Original Design', 'Made in India');
