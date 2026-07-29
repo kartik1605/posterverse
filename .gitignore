@@ -19,3 +19,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Shopify theme lives in its own repo (theme files must be at repo root for
+# Shopify GitHub sync): https://github.com/kartik1605/posterverse-theme
+custom-sticker-store/

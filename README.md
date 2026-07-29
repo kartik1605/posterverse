@@ -17,7 +17,13 @@ Sticker e-commerce storefront — vinyl stickers, art posters, creative cards an
 | `js/main.js` | Cart, scroll reveals, hero parallax, counters, toasts |
 | `js/shopify.js` | Storefront API checkout bridge (see [README-SHOPIFY.md](README-SHOPIFY.md)) |
 | `assets/img/stickers/` | Original die-cut sticker artwork (SVG). `*-t.svg` = transparent, for the floating hero |
-| `custom-sticker-store/` | Shopify **Dawn** theme — the production storefront target |
+
+The Shopify theme lives in a **separate repository**:
+[kartik1605/posterverse-theme](https://github.com/kartik1605/posterverse-theme). It has to,
+because Shopify's GitHub integration only connects branches whose *root* matches the default
+theme folder structure — and that integration writes commits back when the theme editor is
+used, which is best kept away from this design source. Locally it sits at
+`custom-sticker-store/` (gitignored here).
 
 Conventions and design tokens: [CLAUDE.md](CLAUDE.md).
 
@@ -33,10 +39,11 @@ Then open <http://localhost:4324>.
 
 ## Running the Shopify theme
 
-Requires the Shopify CLI and an interactive login to your store:
+Clone the theme repo (or use the existing local copy at `custom-sticker-store/`) and run,
+with an interactive login to your store:
 
 ```bash
-cd custom-sticker-store && shopify theme dev --store your-store.myshopify.com
+shopify theme dev --store your-store.myshopify.com
 ```
 
 ## Design rules
