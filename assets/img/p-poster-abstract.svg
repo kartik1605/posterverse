@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#F3EADD"/>
+  <!-- poster sheet -->
+  <g transform="translate(512 512) rotate(-2)">
+    <rect x="-330" y="-430" width="660" height="860" fill="#17130E"/>
+    <rect x="-318" y="-418" width="636" height="836" fill="#FAF4EB"/>
+    <!-- matisse cutouts -->
+    <path d="M-180 -260 C -60 -340, 120 -300, 160 -180 C 200 -60, 80 20, -40 -20 C -160 -60, -260 -180, -180 -260 Z" fill="#FF5C1F"/>
+    <path d="M-40 40 C 100 -20, 240 60, 220 190 C 200 320, 40 340, -60 260 C -160 180, -140 120, -40 40 Z" fill="#6C3BF4"/>
+    <circle cx="-170" cy="150" r="95" fill="#0FA3A3"/>
+    <path d="M60 -390 q 60 70 0 140 q -60 70 0 140" stroke="#FFC229" stroke-width="26" fill="none" stroke-linecap="round"/>
+    <circle cx="200" cy="-320" r="34" fill="#17130E"/>
+    <path d="M-260 310 l 40 -50 40 50 40 -50 40 50" stroke="#17130E" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

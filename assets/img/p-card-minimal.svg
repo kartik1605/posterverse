@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#F3EADD"/>
+  <!-- back card -->
+  <g transform="translate(620 540) rotate(7)">
+    <rect x="-220" y="-290" width="440" height="580" rx="14" fill="#17130E"/>
+    <path d="M-80 20 q 60 -120 160 -40" stroke="#FAF4EB" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <circle cx="60" cy="-90" r="14" fill="#FFC229"/>
+  </g>
+  <!-- front card: one-line face -->
+  <g transform="translate(420 490) rotate(-6)">
+    <rect x="-230" y="-300" width="460" height="600" rx="14" fill="#FAF4EB" stroke="#17130E" stroke-width="8"/>
+    <path d="M-90 -160
+             C 20 -230, 130 -160, 120 -60
+             C 112 20, 40 40, 10 10
+             C -20 -20, 30 -60, 60 -30
+             M -100 60 C -40 130, 80 130, 120 70
+             M -60 180 q 70 60 150 10"
+          stroke="#17130E" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <circle cx="-140" cy="-220" r="16" fill="#FF5C1F"/>
+    <path d="M150 220 q 24 -30 48 0 q -24 30 -48 0 Z" fill="#0FA3A3"/>
+    <line x1="-180" y1="250" x2="-80" y2="250" stroke="#6C3BF4" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>

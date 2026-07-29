@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#F3EADD"/>
+  <g transform="translate(512 512) rotate(-1.5)">
+    <rect x="-330" y="-430" width="660" height="860" fill="#17130E"/>
+    <rect x="-318" y="-418" width="636" height="836" fill="#FAF4EB"/>
+    <!-- bauhaus grid -->
+    <g transform="translate(-318 -418)">
+      <!-- row 1 -->
+      <rect x="0" y="0" width="212" height="212" fill="#FF5C1F"/>
+      <path d="M212 212 A212 212 0 0 1 424 0 L424 212 Z" fill="#6C3BF4"/>
+      <circle cx="530" cy="106" r="80" fill="#0FA3A3"/>
+      <!-- row 2 -->
+      <path d="M0 212 L212 212 L212 424 Z" fill="#FFC229"/>
+      <rect x="212" y="212" width="212" height="212" fill="#17130E"/>
+      <circle cx="318" cy="318" r="70" fill="#FAF4EB"/>
+      <path d="M424 424 A212 212 0 0 1 636 212 L636 424 Z" fill="#FF8FC7"/>
+      <!-- row 3 -->
+      <circle cx="106" cy="530" r="80" fill="#6C3BF4"/>
+      <path d="M212 636 A212 212 0 0 1 424 424 L424 636 Z" fill="#0FA3A3"/>
+      <rect x="424" y="424" width="212" height="212" fill="#FF5C1F"/>
+      <path d="M424 636 L636 636 L636 424 Z" fill="#17130E" opacity=".15"/>
+      <!-- row 4 -->
+      <rect x="0" y="636" width="636" height="200" fill="#17130E"/>
+      <g stroke="#FAF4EB" stroke-width="10">
+        <line x1="60" y1="676" x2="60" y2="796"/>
+        <line x1="120" y1="676" x2="120" y2="796"/>
+        <line x1="180" y1="676" x2="180" y2="796"/>
+      </g>
+      <circle cx="480" cy="736" r="56" fill="#FFC229"/>
+    </g>
+  </g>
+</svg>

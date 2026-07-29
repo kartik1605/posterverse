@@ -1,0 +1,21 @@
+# Competitor pricing research — benchmarking scratch data, not source.
+# Keep it local; it is not ours to redistribute.
+_research/
+
+# Dependencies
+node_modules/
+
+# Shopify CLI
+.shopify/
+*.liquid.bak
+
+# Local env / secrets — never commit an Admin API token
+.env
+.env.*
+
+# Editor & OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

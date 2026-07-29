@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart — Posterverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+</head>
+<body>
+
+  <div class="topbar" aria-hidden="true">
+    <div class="marquee-track">
+      <span>✦ Free shipping above ₹499 <em>•</em> Ships in 48 hours <em>•</em> COD available <em>•</em> Made in India <em>•</em> 10% off first order — code <em>VERSE10</em></span>
+      <span>✦ Free shipping above ₹499 <em>•</em> Ships in 48 hours <em>•</em> COD available <em>•</em> Made in India <em>•</em> 10% off first order — code <em>VERSE10</em></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="index.html"><span class="logo-dot"></span>Poster<span class="verse">verse</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="cart-btn" href="cart.html">🛒 Cart <span class="cart-count">0</span></a>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero" style="padding-bottom: 1rem;">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Cart</div>
+      <h1>Your <span style="color: var(--orange);">cart</span></h1>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container" id="cart-root"></div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html"><span class="logo-dot"></span>Poster<span class="verse">verse</span></a>
+          <p>Your universe of print. Stickers, posters, cards and labels — designed loud, printed premium, shipped fast.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="WhatsApp">💬</a>
+            <a href="#" aria-label="Pinterest">📌</a>
+          </div>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html?cat=stickers">Stickers</a></li>
+            <li><a href="shop.html?cat=posters">Posters</a></li>
+            <li><a href="shop.html?cat=cards">Creative Cards</a></li>
+            <li><a href="shop.html?cat=labels">Brand Labels</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html#faq">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul>
+            <li><a href="contact.html">Shipping &amp; returns</a></li>
+            <li><a href="contact.html">Track order</a></li>
+            <li><a href="contact.html">Bulk / B2B orders</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Posterverse. Made with ✦ in India.</span>
+        <span>UPI • Cards • COD • Net Banking</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/shopify.js"></script>
+  <script>
+    const root = document.getElementById("cart-root");
+
+    function renderCart() {
+      const items = Cart.get();
+      if (!items.length) {
+        root.innerHTML = `
+          <div class="empty-cart">
+            <span class="big-emoji">🛸</span>
+            <h2 style="margin-bottom:.8rem;">Your cart is floating in space</h2>
+            <p style="color:var(--ink-soft); margin-bottom:2rem;">Fill it with stickers, posters, cards and labels.</p>
+            <a class="btn btn-primary" href="shop.html">Start shopping →</a>
+          </div>`;
+        return;
+      }
+
+      const rows = items.map(item => {
+        const p = PRODUCTS.find(pr => pr.id === item.id);
+        if (!p) return "";
+        return `
+        <div class="cart-item" data-id="${p.id}" data-variant="${item.variant}">
+          <img src="${p.img}" alt="${p.name}">
+          <div>
+            <div class="ci-name">${p.name}</div>
+            ${item.variant ? `<div class="ci-variant">${item.variant}</div>` : ""}
+            <div class="ci-price">${formatINR(p.price)} <span style="color:var(--ink-soft); font-weight:400;">× ${item.qty} = <b>${formatINR(p.price * item.qty)}</b></span></div>
+          </div>
+          <div class="ci-right">
+            <div class="qty-control">
+              <button type="button" data-dec aria-label="Decrease">−</button>
+              <input type="text" value="${item.qty}" readonly aria-label="Quantity">
+              <button type="button" data-inc aria-label="Increase">+</button>
+            </div>
+            <button class="remove-btn" data-remove>Remove</button>
+          </div>
+        </div>`;
+      }).join("");
+
+      const subtotal = Cart.total();
+      const shipping = subtotal >= FREE_SHIP_ABOVE ? 0 : 49;
+      const total = subtotal + shipping;
+      const toFree = FREE_SHIP_ABOVE - subtotal;
+
+      root.innerHTML = `
+        <div class="cart-layout">
+          <div class="cart-items">${rows}</div>
+          <aside class="cart-summary">
+            <h3>Order summary</h3>
+            ${toFree > 0 ? `<div class="sum-row" style="background:var(--cream-2); border:2px dashed var(--ink-soft); border-radius:12px; padding:.7rem 1rem;">Add <b>${formatINR(toFree)}</b> more for free shipping 🚚</div>` : ""}
+            <div class="sum-row"><span>Subtotal (${Cart.count()} items)</span><b>${formatINR(subtotal)}</b></div>
+            <div class="sum-row"><span>Shipping</span>${shipping === 0 ? '<span class="free">FREE ✦</span>' : `<b>${formatINR(shipping)}</b>`}</div>
+            <div class="sum-row total"><span>Total</span><span>${formatINR(total)}</span></div>
+            <button class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.2rem;" id="checkout-btn">Checkout securely →</button>
+            <p class="checkout-note">🔒 Checkout powered by Shopify once connected.<br>UPI · Cards · COD · Net Banking</p>
+          </aside>
+        </div>`;
+
+      /* wire item controls */
+      root.querySelectorAll(".cart-item").forEach(row => {
+        const id = row.dataset.id;
+        const variant = row.dataset.variant;
+        const item = () => Cart.get().find(i => i.id === id && i.variant === variant);
+        row.querySelector("[data-inc]").onclick = () => { Cart.setQty(id, variant, item().qty + 1); renderCart(); };
+        row.querySelector("[data-dec]").onclick = () => {
+          if (item().qty <= 1) return;
+          Cart.setQty(id, variant, item().qty - 1); renderCart();
+        };
+        row.querySelector("[data-remove]").onclick = () => {
+          row.classList.add("removing");
+          setTimeout(() => { Cart.remove(id, variant); renderCart(); }, 280);
+        };
+      });
+
+      document.getElementById("checkout-btn").addEventListener("click", shopifyCheckout);
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Posterverse</title>
+  <meta name="description" content="Shop vinyl stickers, art posters, creative cards and custom brand labels at Posterverse. Free shipping above ₹499.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+</head>
+<body>
+
+  <div class="topbar" aria-hidden="true">
+    <div class="marquee-track">
+      <span>✦ Free shipping above ₹499 <em>•</em> Ships in 48 hours <em>•</em> COD available <em>•</em> Made in India <em>•</em> 10% off first order — code <em>VERSE10</em></span>
+      <span>✦ Free shipping above ₹499 <em>•</em> Ships in 48 hours <em>•</em> COD available <em>•</em> Made in India <em>•</em> 10% off first order — code <em>VERSE10</em></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="index.html"><span class="logo-dot"></span>Poster<span class="verse">verse</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="cart-btn" href="cart.html">🛒 Cart <span class="cart-count">0</span></a>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero" style="padding-bottom: 1.5rem;">
+    <div class="container">
+      <div class="breadcrumb reveal"><a href="index.html">Home</a> / Shop</div>
+      <h1 class="reveal">The whole <span style="color: var(--orange);">verse</span></h1>
+      <p class="reveal">Every sticker, poster, card and label we make — all in one place.</p>
+    </div>
+  </section>
+
+  <section style="padding-top: 1rem;">
+    <div class="container">
+      <div class="shop-toolbar reveal">
+        <div class="filter-pills" id="filter-pills">
+          <button class="pill active" data-cat="all">All</button>
+          <button class="pill" data-cat="stickers">⚡ Stickers</button>
+          <button class="pill" data-cat="posters">🖼️ Posters</button>
+          <button class="pill" data-cat="cards">💌 Cards</button>
+          <button class="pill" data-cat="labels">🏷️ Labels</button>
+        </div>
+      </div>
+      <div class="vibe-strip reveal" id="vibe-strip"></div>
+      <div class="shop-toolbar" style="margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; gap: 1.2rem;">
+          <span class="shop-count" id="shop-count"></span>
+          <select class="sort-select" id="sort-select" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: low → high</option>
+            <option value="price-desc">Price: high → low</option>
+            <option value="rating">Top rated</option>
+          </select>
+        </div>
+      </div>
+      <div class="product-grid" id="shop-grid"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html"><span class="logo-dot"></span>Poster<span class="verse">verse</span></a>
+          <p>Your universe of print. Stickers, posters, cards and labels — designed loud, printed premium, shipped fast.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="WhatsApp">💬</a>
+            <a href="#" aria-label="Pinterest">📌</a>
+          </div>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html?cat=stickers">Stickers</a></li>
+            <li><a href="shop.html?cat=posters">Posters</a></li>
+            <li><a href="shop.html?cat=cards">Creative Cards</a></li>
+            <li><a href="shop.html?cat=labels">Brand Labels</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html#faq">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul>
+            <li><a href="contact.html">Shipping &amp; returns</a></li>
+            <li><a href="contact.html">Track order</a></li>
+            <li><a href="contact.html">Bulk / B2B orders</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Posterverse. Made with ✦ in India.</span>
+        <span>UPI • Cards • COD • Net Banking</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const grid = document.getElementById("shop-grid");
+    const countEl = document.getElementById("shop-count");
+    const pills = document.querySelectorAll("#filter-pills .pill");
+    const sortSel = document.getElementById("sort-select");
+
+    const params = new URLSearchParams(location.search);
+    let activeCat = params.get("cat") || "all";
+    if (![...pills].some(p => p.dataset.cat === activeCat)) activeCat = "all";
+    let activeVibe = params.get("vibe") && VIBES[params.get("vibe")] ? params.get("vibe") : null;
+
+    /* vibe chips */
+    const vibeStrip = document.getElementById("vibe-strip");
+    vibeStrip.innerHTML = Object.entries(VIBES)
+      .filter(([k]) => PRODUCTS.some(p => p.vibe === k))
+      .map(([k, v]) => `<button class="vibe-chip" data-vibe="${k}" style="--g1:${v.g[0]}; --g2:${v.g[1]};">${v.emoji} ${v.label}</button>`)
+      .join("");
+
+    function syncURL() {
+      const q = new URLSearchParams();
+      if (activeCat !== "all") q.set("cat", activeCat);
+      if (activeVibe) q.set("vibe", activeVibe);
+      history.replaceState(null, "", "shop.html" + (q.toString() ? "?" + q : ""));
+    }
+
+    vibeStrip.addEventListener("click", e => {
+      const chip = e.target.closest(".vibe-chip");
+      if (!chip) return;
+      activeVibe = activeVibe === chip.dataset.vibe ? null : chip.dataset.vibe;
+      syncURL();
+      render();
+    });
+
+    function render() {
+      vibeStrip.querySelectorAll(".vibe-chip").forEach(c =>
+        c.classList.toggle("active", c.dataset.vibe === activeVibe));
+
+      let items = activeCat === "all" ? [...PRODUCTS] : PRODUCTS.filter(p => p.category === activeCat);
+      if (activeVibe) items = items.filter(p => p.vibe === activeVibe);
+      switch (sortSel.value) {
+        case "price-asc": items.sort((a, b) => a.price - b.price); break;
+        case "price-desc": items.sort((a, b) => b.price - a.price); break;
+        case "rating": items.sort((a, b) => b.rating - a.rating); break;
+        default: items.sort((a, b) => (b.badge ? 1 : 0) - (a.badge ? 1 : 0));
+      }
+      grid.innerHTML = items.length
+        ? items.map(productCardHTML).join("")
+        : `<div style="grid-column:1/-1; text-align:center; padding:4rem 0;">
+             <span style="font-size:3.5rem; display:block; margin-bottom:1rem;">🔍</span>
+             <h3 style="margin-bottom:.6rem;">Nothing in this combo yet</h3>
+             <p style="color:var(--ink-soft);">Try another vibe or clear the category filter.</p>
+           </div>`;
+      countEl.textContent = `${items.length} product${items.length !== 1 ? "s" : ""}`;
+      // animate cards in
+      [...grid.children].forEach((card, i) => {
+        card.style.opacity = 0;
+        card.style.transform = "translateY(26px)";
+        setTimeout(() => {
+          card.style.transition = "opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1)";
+          card.style.opacity = 1;
+          card.style.transform = "none";
+        }, 60 * i);
+      });
+    }
+
+    pills.forEach(pill => {
+      pill.classList.toggle("active", pill.dataset.cat === activeCat);
+      pill.addEventListener("click", () => {
+        activeCat = pill.dataset.cat;
+        pills.forEach(p => p.classList.toggle("active", p === pill));
+        syncURL();
+        render();
+      });
+    });
+    sortSel.addEventListener("change", render);
+    render();
+  </script>
+</body>
+</html>

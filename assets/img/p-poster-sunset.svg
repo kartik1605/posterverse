@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFC229"/>
+      <stop offset=".55" stop-color="#FF5C1F"/>
+      <stop offset="1" stop-color="#6C3BF4"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FAF4EB"/>
+      <stop offset="1" stop-color="#F3D9C4"/>
+    </linearGradient>
+    <clipPath id="sheet"><rect x="-318" y="-418" width="636" height="836"/></clipPath>
+  </defs>
+  <rect width="1024" height="1024" fill="#F3EADD"/>
+  <g transform="translate(512 512) rotate(1.5)">
+    <rect x="-330" y="-430" width="660" height="860" fill="#17130E"/>
+    <rect x="-318" y="-418" width="636" height="836" fill="url(#sky)"/>
+    <g clip-path="url(#sheet)">
+      <circle cx="0" cy="20" r="230" fill="url(#sun)"/>
+      <!-- horizon slats cutting the sun -->
+      <g fill="#FAF4EB">
+        <rect x="-320" y="60" width="640" height="18"/>
+        <rect x="-320" y="110" width="640" height="26"/>
+        <rect x="-320" y="170" width="640" height="36"/>
+      </g>
+      <!-- ground -->
+      <rect x="-318" y="240" width="636" height="180" fill="#17130E"/>
+      <path d="M-318 240 H318" stroke="#FF5C1F" stroke-width="6"/>
+      <!-- birds -->
+      <path d="M-140 -220 q 20 -18 40 0 M-90 -190 q 16 -14 32 0" stroke="#17130E" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <!-- sun rays -->
+      <g stroke="#FF5C1F" stroke-width="10" stroke-linecap="round">
+        <line x1="-290" y1="-330" x2="-250" y2="-330"/>
+        <line x1="250" y1="-350" x2="290" y2="-350"/>
+      </g>
+    </g>
+  </g>
+</svg>
